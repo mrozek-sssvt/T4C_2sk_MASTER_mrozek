@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+}
+
+.container {
+    max-width: 70%;
+    margin: 40px auto;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin-top: 20px;
+    font-size: 7rem;
+    color: cadetblue;
+}
+
+h2 {
+    font-size: 3rem;
+    color: coral;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#bouldering > div {
+    margin: 30px auto;
+    font-size: 1.2rem;
+}
+
+#bouldering p {
+    margin: 10px 0px;
+}
+
+#bouldering ol {
+    list-style-position: inside;
+}
+
+#bouldering p a {
+    text-decoration-style: wavy;
+    color: slategray;
+}
+
+main img {
+    max-width: 100%;
+}
+
+footer {
+    margin-top: 30px;
+    background-color: dodgerblue;
+    color: white;
+    padding: 30px 20px;
+    width: 100%;
+    text-align: center;
+}

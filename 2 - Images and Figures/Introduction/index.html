@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /* Základní styly a pozadí stránky */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+
+            /* DEMONSTRACE POZADÍ V CSS */
+            background-color: #f4f4f4; /* Záložní barva, pokud se obrázek nenačte */
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Jemný vzor na pozadí */
+            background-repeat: repeat; /* Opakování vzoru */
+            background-attachment: fixed; /* Pozadí se při skrolování neposouvá */
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto; /* Vycentrování obsahu */
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h1, h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+
+        /* --- STYLOVÁNÍ OBRÁZKŮ --- */
+
+        /* Základní responzivita pro všechny obrázky */
+        img {
+            max-width: 100%; /* Obrázek se nikdy neroztáhne více než jeho kontejner */
+            height: auto;    /* Zachová poměr stran */
+            display: block;  /* Odstraní mezeru pod obrázkem */
+            margin: 15px 0;
+        }
+
+        /* Stylování elementu <figure> pro vizuální oddělení */
+        figure {
+            margin: 20px 0; /* Vynulování výchozího marginu prohlížeče */
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Stylování popisku obrázku <figcaption> */
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Bonus: Efekt při najetí myší na obrázek uvnitř <figure> */
+        figure img:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galerie přírody</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Základní vložení obrázku</h2>
+            <p>Element <code>&lt;img&gt;</code> je základ pro vkládání obrázků. Atribut <code>alt</code> je klíčový pro přístupnost.</p>
+            <img src="https://images.unsplash.com/photo-1757581560277-847ded6dce61?q=80&w=1750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Placeholder obrázek krajiny">
+        </section>
+
+        <section>
+            <h2>Použití <code>&lt;figure&gt;</code> a <code>&lt;figcaption&gt;</code></h2>
+            <p>Pro obrázky, které doplňují obsah a mají vlastní popisek, je sémanticky správné použít <code>&lt;figure&gt;</code> a <code>&lt;figcaption&gt;</code>.</p>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1757581560277-847ded6dce61?q=80&w=1750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Placeholder obrázek lesa">
+                <figcaption><strong>Obrázek 1:</strong> Klidný les při západu slunce.</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Responzivní obrázek s <code>&lt;picture&gt;</code></h2>
+            <p>Element <code>&lt;picture&gt;</code> umožňuje načíst různý obrázek pro různá zařízení (např. jiný formát nebo ořez pro mobily a desktopy).</p>
+            <figure>
+                <picture>
+                    <source media="(min-width: 900px)" srcset="https://images.unsplash.com/photo-1757581560277-847ded6dce61?q=80&w=1750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+                    <source media="(min-width: 600px)" srcset="https://images.unsplash.com/photo-1757581560277-847ded6dce61?q=80&w=1750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+                    <img src="https://images.unsplash.com/photo-1757581560277-847ded6dce61?q=80&w=1750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Responzivní placeholder obrázek">
+                </picture>
+                <figcaption><strong>Obrázek 2:</strong> Tento obrázek mění zdroj podle šířky okna.</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Cvičení pro SSŠVT</p>
+</footer>
+</body>
+</html>

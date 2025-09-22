@@ -1,0 +1,83 @@
+/* Základní styly a pozadí stránky */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+
+    /* DEMONSTRACE POZADÍ V CSS */
+    background-color: #f4f4f4; /* Záložní barva, pokud se obrázek nenačte */
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Jemný vzor na pozadí */
+    background-repeat: repeat; /* Opakování vzoru */
+    background-attachment: fixed; /* Pozadí se při skrolování neposouvá */
+}
+
+header, footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+
+main {
+    max-width: 900px;
+    margin: 20px auto; /* Vycentrování obsahu */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h1, h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+code {
+    background-color: #eee;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+
+/* --- STYLOVÁNÍ OBRÁZKŮ --- */
+
+/* Základní responzivita pro všechny obrázky */
+img {
+    max-width: 100%; /* Obrázek se nikdy neroztáhne více než jeho kontejner */
+    height: auto;    /* Zachová poměr stran */
+    display: block;  /* Odstraní mezeru pod obrázkem */
+    margin: 15px 0;
+}
+
+/* Stylování elementu <figure> pro vizuální oddělení */
+figure {
+    margin: 20px 0; /* Vynulování výchozího marginu prohlížeče */
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Stylování popisku obrázku <figcaption> */
+figcaption {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Bonus: Efekt při najetí myší na obrázek uvnitř <figure> */
+figure img:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
