@@ -1,0 +1,112 @@
+/* Základní styly pro čitelnost */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.card {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* --- Pseudotřídy (vybírají element v určitém stavu) --- */
+
+/* :hover */
+/* Změní vzhled tlačítka a odkazu, když na něj najede myš */
+.btn:hover, a:hover {
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+/* :active */
+/* Změní barvu odkazu při jeho stisknutí */
+a:active {
+    color: red;
+}
+
+/* :focus */
+/* Změní vzhled vstupního pole, když je aktivní (zaostřené) */
+input:focus {
+    outline: none;
+    border: 2px solid #5cb85c;
+    background-color: #e8f0fe;
+}
+
+/* :first-child */
+/* Vybere první odstavec uvnitř svého rodičovského elementu (.card) */
+.card p:first-child {
+    font-weight: bold;
+}
+
+/* :last-child */
+/* Vybere poslední položku v seznamu */
+ul li:last-child {
+    color: red;
+    font-style: italic;
+}
+
+/* :nth-child(2) */
+/* Vybere druhou položku v seznamu */
+ul li:nth-child(2) {
+    color: green;
+}
+
+/* --- Pseudoelementy (styly aplikují na část elementu) --- */
+
+/* ::first-letter */
+/* Styly aplikuje na první písmeno daného odstavce */
+.first-letter-para::first-letter {
+    font-size: 2.5em;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* ::first-line */
+/* Styly aplikuje na první řádek odstavce */
+.first-line-para::first-line {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/** :hover - PSEUDOTRIDA! */
+P:hover {
+  background-color: red;
+}
+
+.nth-child-demo a:nth-child(2) {
+    color: red;
+}
+
+/** Za vzorec lze dosadit např. i odd/even */
+/* (an + b) */
+/* a - step size */
+/* n - indicies - indexy elementu */
+/* b - offset */
+.nth-child-demo-combi a:nth-child(5n-1) {
+    color: red;
+}
+
+
+/* Pokročilé selektory */
+a[href*="sssvt.cz"]:visited {
+    color: orange;
+}
+
+div[role="alert"] {
+    padding: 10px 20px;
+    border: solid 1px red;
+}
+
+div[role="alert"]::before {
+    content: "Tento text v HTML není";
+    color: orange;
+}
+div[role="alert"]::after {
+    content: "Ani tento text v HTML není";
+    color: blue;
+}

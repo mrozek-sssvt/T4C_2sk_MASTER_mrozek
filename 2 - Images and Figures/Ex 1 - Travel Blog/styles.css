@@ -1,0 +1,112 @@
+/* --- CSS Proměnné inspirované designem --- */
+:root {
+    --heading-blue: #3A6EA5; /* Modrá z hlavního nadpisu */
+    --accent-orange: #DD7230; /* Oranžová pro podnadpisy */
+    --text-color: #333;      /* Tmavě šedá pro text */
+    --footer-bg: #2C3E50;    /* Tmavě modrá pro patičku */
+    --background-color: #FFFFFF;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* --- Základní styly --- */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    line-height: 1.7;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* --- Kontejner pro centrování obsahu --- */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Hlavička --- */
+.main-header {
+    /* Přidání obrázku na pozadí a tmavého překrytí pro kontrast */
+    background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('./Images/prague_bg.png');
+    background-size: cover; /* Obrázek se roztáhne na celou plochu hlavičky */
+    background-position: center; /* Vystředění obrázku */
+
+    color: white; /* Nastavení barvy textu na bílou */
+    text-align: center; /* Zarovnání textu na střed pro lepší vizuální efekt */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-bottom: none; /* Odstranění spodního rámečku, který už není potřeba */
+}
+
+.main-header h1 {
+    font-size: 3.5em; /* Velký nadpis */
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: white;
+}
+
+/* --- Hlavní obsah a články --- */
+.post {
+    margin-bottom: 50px;
+}
+
+.post h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--accent-orange);
+    margin-top: 40px; /* Větší mezera nad podnadpisem */
+}
+
+.post p {
+    font-size: 1.1em;
+}
+
+/* --- Stylování obrázků a popisků --- */
+.post-figure {
+    margin: 30px 0;
+}
+
+.post img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Jemné zaoblení rohů */
+}
+
+.post figcaption {
+    font-size: 0.9em;
+    text-align: center;
+    color: #888;
+    margin-top: 15px;
+}
+
+.post p:first-of-type:first-letter {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* --- Patička --- */
+.main-footer {
+    background-color: var(--footer-bg);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+a {
+    color: inherit;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+}

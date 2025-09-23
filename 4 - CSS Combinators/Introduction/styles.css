@@ -1,0 +1,25 @@
+/* Selektor potomka (mezera) */
+/* Vybere všechny <p> elementy, které jsou uvnitř elementu <section> */
+section p {
+    color: blue;
+    font-weight: 100;
+}
+
+/* Selektor přímého potomka (>) */
+/* Vybere pouze ty <p> elementy, které jsou přímými potomky elementu <section> */
+section > p {
+    font-style: italic;
+    border-bottom: 2px solid blue;
+}
+
+/* Selektor přilehlého sourozence (+) */
+/* Vybere <p> element, který ihned následuje po jiném <p> elementu */
+.siblings-demo p + p {
+    background-color: yellow;
+}
+
+/* Selektor obecného sourozence (~) */
+/* Vybere všechny <p> elementy, které následují po <h2>, bez ohledu na to, co je mezi nimi */
+.siblings-demo h2 ~ p {
+    border: 1px dashed red;
+}
