@@ -1,115 +1,203 @@
-/* Základní styly pro čitelnost */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 20px;
+/* Základní styly pro celou stránku */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --card-bg: #ffffff;
+    --body-bg: #f0f2f5;
+    --border-color: #dddfe2;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--body-bg);
+    color: var(--dark-color);
+    padding: 20px;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: var(--primary-color);
+}
+
+.toc a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 8px;
+}
+.toc a:hover {
+    text-decoration: underline;
+}
+
+/* Styly pro jednotlivé karty */
 .card {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Pseudotřídy (vybírají element v určitém stavu) --- */
+.card h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--body-bg);
+    padding-bottom: 10px;
+}
 
-/* :hover */
-/* Změní vzhled tlačítka a odkazu, když na něj najede myš */
-.btn:hover, a:hover {
-    background-color: dodgerblue;
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
     color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+}
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* --- Karta 1: Interaktivní stavy --- */
+#interactive-states .btn:active {
+    background-color: var(--danger-color);
+    transform: translateY(1px);
+}
+#interactive-states input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* --- Karta 2: Strukturální selektory --- */
+#structural-selectors ul { list-style-type: none; padding: 0; }
+#structural-selectors li { padding: 5px; border-bottom: 1px solid #eee; }
+#structural-selectors li:first-child { font-weight: bold; color: var(--success-color); }
+#structural-selectors li:last-child { font-style: italic; color: var(--danger-color); border-bottom: none; }
+#structural-selectors li:nth-child(2) { background-color: #e8f0fe; }
+
+/* --- Karta 3: Stylování části textu --- */
+#text-styling .first-letter-example::first-letter { font-size: 3em; color: var(--primary-color); font-weight: bold; float: left; margin-right: 0.1em; line-height: 1; }
+#text-styling .first-line-example::first-line { font-weight: bold; color: var(--info-color); }
+
+/* --- Karta 4: Generovaný obsah --- */
+#generated-content .quote { font-style: italic; color: #555; margin-top: 20px; }
+#generated-content .quote::before { content: "“"; font-size: 2em; font-weight: bold; color: var(--primary-color); }
+#generated-content .quote::after { content: "”"; font-size: 2em; font-weight: bold; color: var(--primary-color); }
+
+/* --- Karta 5: Pokročilá strukturální selekce --- */
+#advanced-structural .nth-child-demo span, #advanced-structural .nth-child-demo-pattern a { display: inline-block; padding: 5px 10px; margin: 2px; border: 1px solid #ccc; border-radius: 4px; }
+#advanced-structural .nth-child-demo span:nth-child(2n) { background-color: var(--warning-color); }
+#advanced-structural .nth-child-demo-pattern a:nth-child(3n-1) { background-color: var(--danger-color); color: white; }
+
+/* --- Karta 6: Stylování výběru textu --- */
+#selection-styling p::selection { background-color: blueviolet; color: white; }
+
+/* --- Karta 7: Kombinace selektorů --- */
+#attribute-combination a[href*="sssvt.cz"]:visited { color: orange; font-weight: bold; }
+#attribute-combination .visited-link:visited { color: var(--secondary-color); }
+
+/* --- Karta 8: Atributy a generovaný obsah --- */
+#attribute-generated div[role="alert"] { padding: 15px; border: 1px solid #f5c6cb; background-color: #f8d7da; color: #721c24; border-radius: 5px; }
+#attribute-generated div[role="alert"]::before { content: "POZOR: "; font-weight: bold; margin-right: 5px; }
+
+/* --- Karta 9: Negace --- */
+#negation-pseudo-class li:not(.special) {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* --- Karta 10: Formulářové pseudotřídy --- */
+#form-pseudo-classes .form-group { margin-bottom: 10px; }
+#form-pseudo-classes input:checked + label { color: var(--success-color); font-weight: bold; }
+#form-pseudo-classes input:disabled { background-color: #e9ecef; cursor: not-allowed; }
+#form-pseudo-classes input:disabled + label { color: var(--secondary-color); }
+#form-pseudo-classes input:required { border-left: 3px solid var(--warning-color); }
+#form-pseudo-classes input:invalid { border-color: var(--danger-color); box-shadow: 0 0 3px var(--danger-color); }
+#form-pseudo-classes input:valid { border-color: var(--success-color); }
+
+/* --- Karta 11: Cílový selektor --- */
+#target-pseudo-class .target-section {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: all 0.3s ease-in-out;
+}
+#target-pseudo-class .target-section:target {
+    background-color: #fff3cd;
+    border-color: var(--warning-color);
+    transform: scale(1.02);
+}
+
+/* --- Karta 12: Prázdné prvky --- */
+#empty-pseudo-class .box-container { display: flex; gap: 10px; }
+#empty-pseudo-class .box {
+    border: 1px dashed var(--secondary-color);
+    padding: 10px;
+    min-width: 50px;
+    min-height: 50px;
+    text-align: center;
+}
+#empty-pseudo-class .box:empty {
+    background-color: var(--light-color);
+    border-style: solid;
+    border-color: var(--success-color);
+}
+#empty-pseudo-class .box:empty::after {
+    content: "Prázdný";
+    color: var(--secondary-color);
+    font-size: 0.8em;
+}
+
+/* --- Karta 13: Stylování odrážek --- */
+#marker-pseudo-element ul li::marker {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    content: "🚀 ";
+}
+
+/* --- Karta 14: Stylování placeholderu --- */
+#placeholder-pseudo-element input { width: 50%; padding: 8px; border-radius: 4px; border: 1px solid var(--border-color); }
+#placeholder-pseudo-element input::placeholder {
+    color: var(--info-color);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* --- Karta 15: Seskupování selektorů --- */
+#matches-pseudo-classes :is(h2, h3):hover {
+    color: white;
+    background-color: var(--dark-color);
     cursor: pointer;
 }
-
-/* :active */
-/* Změní barvu odkazu při jeho stisknutí */
-a:active {
-    color: red;
+/* :where() má nulovou specificitu, takže by ho přepsal jakýkoli jiný selektor.
+   Používá se hlavně v CSS resetech. Zde by se choval stejně jako :is() */
+#matches-pseudo-classes :where(h2, h3) {
+    transition: background-color 0.2s;
 }
 
-/* :focus */
-/* Změní vzhled vstupního pole, když je aktivní (zaostřené) */
-input:focus {
-    outline: none;
-    border: 2px solid #5cb85c;
-    background-color: #e8f0fe;
-}
-
-/* :first-child */
-/* Vybere první odstavec uvnitř svého rodičovského elementu (.card) */
-.card p:first-child {
-    font-weight: bold;
-}
-
-/* :last-child */
-/* Vybere poslední položku v seznamu */
-ul li:last-child {
-    color: red;
-    font-style: italic;
-}
-
-/* :nth-child(2) */
-/* Vybere druhou položku v seznamu */
-ul li:nth-child(2) {
-    color: green;
-}
-
-/* --- Pseudoelementy (styly aplikují na část elementu) --- */
-
-/* ::first-letter */
-/* Styly aplikuje na první písmeno daného odstavce */
-.first-letter-para::first-letter {
-    font-size: 2.5em;
-    color: #007bff;
-    font-weight: bold;
-}
-
-/* ::first-line */
-/* Styly aplikuje na první řádek odstavce */
-.first-line-para::first-line {
-    font-weight: bold;
-    color: #28a745;
-}
-
-/** :hover - PSEUDOTRIDA! */
-P:hover {
-  background-color: red;
-}
-
-.nth-child-demo a:nth-child(2) {
-    color: red;
-}
-
-/** Za vzorec lze dosadit např. i odd/even */
-/* (an + b) */
-/* a - step size */
-/* n - indicies - indexy elementu */
-/* b - offset */
-.nth-child-demo-combi a:nth-child(5n-1) {
-    color: red;
-}
-
-#selection-example::selection {
-    background-color: blueviolet;
-}
-
-/* Pokročilé selektory */
-a[href*="sssvt.cz"]:visited {
-    color: orange;
-}
-
-div[role="alert"] {
-    padding: 10px 20px;
-    border: solid 1px red;
-}
-
-div[role="alert"]::before {
-    content: "Tento text v HTML není";
-    color: orange;
-}
-div[role="alert"]::after {
-    content: "Ani tento text v HTML není";
-    color: blue;
-}

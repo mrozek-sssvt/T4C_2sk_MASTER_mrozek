@@ -2,74 +2,213 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Pseudotřídy a Pseudoelementy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudotřídy a Pseudoelementy v CSS</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header>
-        <h1>Ukázka Pseudotříd a Pseudoelementů</h1>
-    </header>
+<header>
+    <h1>Rozšířená ukázka Pseudotříd a Pseudoelementů</h1>
+    <p>Každá karta demonstruje jiný koncept. Prozkoumejte kód a sledujte, jak CSS pravidla ovlivňují jednotlivé prvky.</p>
+    <nav class="toc">
+        <a href="#interactive-states">Interakce</a> |
+        <a href="#structural-selectors">Struktura</a> |
+        <a href="#text-styling">Text</a> |
+        <a href="#generated-content">Generovaný Obsah</a> |
+        <a href="#advanced-structural">Pokročilá Struktura</a> |
+        <a href="#selection-styling">Výběr</a> |
+        <a href="#attribute-combination">Kombinace</a> |
+        <a href="#attribute-generated">Atributy</a> |
+        <a href="#negation-pseudo-class">Negace (:not)</a> |
+        <a href="#form-pseudo-classes">Formuláře</a> |
+        <a href="#target-pseudo-class">Cíl (:target)</a> |
+        <a href="#empty-pseudo-class">Prázdné prvky (:empty)</a> |
+        <a href="#marker-pseudo-element">Odražky (::marker)</a> |
+        <a href="#placeholder-pseudo-element">Placeholder (::placeholder)</a> |
+        <a href="#sibling-combinators">Sousedé (+, ~)</a> |
+        <a href="#matches-pseudo-classes">Seskupení (:is, :where)</a>
+    </nav>
+</header>
 
-    <div class="card">
-        <h2>Pseudotřídy</h2>
-        <a href="https://sssvt.cz" target="_blank">Odkaz na SSŠVT</a>
-        <br>
-        <button class="btn">Tlačítko</button>
-        <p>Tento odstavec má pseudotřídu **:first-child** a **:hover**.</p>
-        <ul>
-            <li>První položka v seznamu</li>
-            <li>Druhá položka</li>
-            <li>Třetí položka</li>
-        </ul>
+<!-- Karta 1: Interaktivní stavy -->
+<div class="card" id="interactive-states">
+    <h2>Pseudotřídy pro interakci: :hover, :active, :focus</h2>
+    <p>Tyto pseudotřídy reagují na akce uživatele.</p>
+    <a href="#interactive-states" class="btn">Najet myší (:hover)</a>
+    <a href="#interactive-states" class="btn">Kliknout a držet (:active)</a>
+    <input type="text" placeholder="Kliknout pro :focus">
+</div>
+
+<!-- Karta 2: Strukturální selekce -->
+<div class="card" id="structural-selectors">
+    <h2>Strukturální pseudotřídy: :first-child, :last-child, :nth-child</h2>
+    <p>Vybírají prvky na základě jejich pozice v rámci rodiče.</p>
+    <ul>
+        <li>První položka (:first-child)</li>
+        <li>Druhá položka (:nth-child(2))</li>
+        <li>Třetí položka</li>
+        <li>Čtvrtá položka</li>
+        <li>Poslední položka (:last-child)</li>
+    </ul>
+</div>
+
+<!-- Karta 3: Stylování části textu -->
+<div class="card" id="text-styling">
+    <h2>Pseudoelementy pro text: ::first-letter, ::first-line</h2>
+    <p class="first-letter-example">Pseudoelement ::first-letter tohoto odstavce je výrazně větší a má jinou barvu. Slouží k vytvoření iniciály.</p>
+    <p class="first-line-example">::first-line tohoto odstavce má jiný styl. Zkuste změnit šířku okna a uvidíte, jak se zvýraznění přizpůsobuje délce řádku.</p>
+</div>
+
+<!-- Karta 4: Generovaný obsah -->
+<div class="card" id="generated-content">
+    <h2>Pseudoelementy pro generovaný obsah: ::before, ::after</h2>
+    <p>Před a za tento odstavec je přidán obsah, který není v HTML kódu.</p>
+    <div class="quote">
+        Toto je citace, která je dekorována pomocí ::before a ::after.
     </div>
+</div>
 
-    <div class="card">
-        <h2>Pseudoelementy</h2>
-        <p class="first-letter-para">První písmeno tohoto odstavce bude speciálně nastylované. Můžeme ho zvětšit a změnit mu barvu.</p>
-        <p class="first-line-para">První řádek tohoto textu bude mít jinou barvu a tloušťku. Zkuste změnit velikost okna, abyste viděli, jak se přizpůsobuje.</p>
-        <p>Tento odstavec má speciální **:before** a **:after** obsah.</p>
+<!-- Karta 5: Pokročilá strukturální selekce -->
+<div class="card" id="advanced-structural">
+    <h2>Pokročilá selekce: :nth-child(an+b)</h2>
+    <p>Vzorec <code>(an+b)</code> umožňuje vybírat prvky v cyklických vzorcích. Zde vybíráme sudé prvky (2n).</p>
+    <div class="nth-child-demo">
+        <span>První</span>
+        <span>Druhý (2n)</span>
+        <span>Třetí</span>
+        <span>Čtvrtý (2n)</span>
+        <span>Pátý</span>
+        <span>Šestý (2n)</span>
     </div>
+    <p>Zde vybíráme každý třetí prvek, počínaje druhým (3n-1).</p>
+    <div class="nth-child-demo-pattern">
+        <a>Odkaz 1</a>
+        <a>Odkaz 2 (zvolen)</a>
+        <a>Odkaz 3</a>
+        <a>Odkaz 4</a>
+        <a>Odkaz 5 (zvolen)</a>
+        <a>Odkaz 6</a>
+        <a>Odkaz 7</a>
+        <a>Odkaz 8 (zvolen)</a>
+    </div>
+</div>
 
-    <div class="card">
-        <h2>Pokročilá práce s pseudotřídami a elementy</h2>
-        <div class="nth-child-demo">
-            <a href="">Odkaz 1</a>
-            <a href="">Odkaz 2</a>
-            <a href="">Odkaz 3</a>
-            <a href="">Odkaz 4</a>
-            <a href="">Odkaz 5</a>
+<!-- Karta 6: Stylování výběru textu -->
+<div class="card" id="selection-styling">
+    <h2>Pseudoelement ::selection</h2>
+    <p>Označte libovolnou část tohoto textu myší a uvidíte, že výběr má vlastní barvu pozadí a textu definovanou v CSS.</p>
+</div>
+
+<!-- Karta 7: Kombinace selektorů -->
+<div class="card" id="attribute-combination">
+    <h2>Kombinace atributových selektorů a pseudotříd</h2>
+    <p>Cílíme na <strong>navštívené</strong> (`:visited`) odkazy, jejichž `href` <strong>obsahuje</strong> `sssvt.cz`.</p>
+    <a href="https://sssvt.cz" target="_blank">Nenavštívený odkaz na SSSVT (po kliknutí zoranžoví)</a>
+    <br>
+    <a href="https://google.com" target="_blank" class="visited-link">Jiný navštívený odkaz (po kliknutí zešedne)</a>
+</div>
+
+<!-- Karta 8: Atributy a generovaný obsah -->
+<div class="card" id="attribute-generated">
+    <h2>Atributový selektor s ::before</h2>
+    <p>Obsah je generován na základě atributu elementu. CSS přidává obsah před `div` s atributem `role="alert"`.</p>
+    <div role="alert">
+        Tento text je v HTML.
+    </div>
+</div>
+
+<!-- Karta 9: Negace -->
+<div class="card" id="negation-pseudo-class">
+    <h2>Negace: :not()</h2>
+    <p>Pseudotřída <code>:not()</code> vybere všechny prvky, které neodpovídají zadanému selektoru. Zde stylujeme všechny položky kromě té s třídou <code>.special</code>.</p>
+    <ul>
+        <li>Běžná položka</li>
+        <li class="special">Speciální položka (bez stylu)</li>
+        <li>Běžná položka</li>
+        <li>Běžná položka</li>
+    </ul>
+</div>
+
+<!-- Karta 10: Formulářové pseudotřídy -->
+<div class="card" id="form-pseudo-classes">
+    <h2>Stavy formulářových prvků</h2>
+    <p>Tyto pseudotřídy reagují na stav formulářových polí.</p>
+    <form>
+        <div class="form-group">
+            <input type="checkbox" id="check" checked>
+            <label for="check">Zaškrtnuté pole (:checked)</label>
         </div>
-
-        <div class="nth-child-demo-combi">
-            <a href="">Odkaz 1</a>
-            <a href="">Odkaz 2</a>
-            <a href="">Odkaz 3</a>
-            <a href="">Odkaz 4</a>
-            <a href="">Odkaz 5</a>
-            <a href="">Odkaz 6</a>
-            <a href="">Odkaz 7</a>
-            <a href="">Odkaz 8</a>
-            <a href="">Odkaz 9</a>
-            <a href="">Odkaz 10</a>
-            <a href="">Odkaz 11</a>
-            <a href="">Odkaz 12</a>
-            <a href="">Odkaz 13</a>
+        <div class="form-group">
+            <input type="text" placeholder="Zakázané pole" id="disabled" disabled>
+            <label for="disabled">Zakázané pole (:disabled)</label>
         </div>
-    </div>
-
-    <div class="card">
-        <a href="https://sssvt.cz" target="_blank">SSSVT odkaz</a>
-        <div role="alert">
-            Tento text ale v HTML je
+        <div class="form-group">
+            <input type="email" placeholder="vypln@email.cz" id="email" required>
+            <label for="email">Povinné a (ne)validní pole (:required, :valid, :invalid)</label>
         </div>
-    </div>
+    </form>
+</div>
 
-    <div class="card">
-        <p id="selection-example">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque dolorem, laudantium modi nesciunt rerum tenetur totam. Cum iusto magnam perferendis? Pariatur quis quisquam ut? Ad aliquam aliquid aperiam, dolores excepturi officiis quaerat saepe sint temporibus vel. Commodi doloribus maxime minima natus nobis placeat, quaerat voluptas? Adipisci culpa cumque esse est explicabo maxime voluptatem. Accusantium deleniti eaque eius eos illum mollitia nemo nisi officiis sed similique? Alias animi at culpa cum debitis dolorem eligendi exercitationem facere facilis impedit labore omnis placeat, provident quo quod quos reprehenderit sequi sunt totam vel? Accusamus ad, animi culpa dicta ipsum magni odio praesentium voluptatum.
-        </p>
+<!-- Karta 11: Cílový selektor -->
+<div class="card" id="target-pseudo-class">
+    <h2>Cílový selektor: :target</h2>
+    <p>Tento selektor ostyluje prvek, jehož <code>id</code> odpovídá fragmentu v URL (část za #). Zkuste kliknout na odkazy níže.</p>
+    <a href="#section-1" class="btn">Přejít na sekci 1</a>
+    <a href="#section-2" class="btn">Přejít na sekci 2</a>
+    <div id="section-1" class="target-section">
+        <h3>Sekce 1</h3>
+        <p>Tato sekce je nyní cílem.</p>
     </div>
+    <div id="section-2" class="target-section">
+        <h3>Sekce 2</h3>
+        <p>Tato sekce je nyní cílem.</p>
+    </div>
+</div>
+
+<!-- Karta 12: Prázdné prvky -->
+<div class="card" id="empty-pseudo-class">
+    <h2>Prázdné prvky: :empty</h2>
+    <p>Selektor <code>:empty</code> vybere prvky, které neobsahují žádné potomky ani text (ani mezeru). Prázdné boxy níže jsou viditelné jen díky CSS.</p>
+    <div class="box-container">
+        <div class="box">Obsah</div>
+        <div class="box"></div>
+        <div class="box">Obsah</div>
+        <div class="box"></div>
+    </div>
+</div>
+
+<!-- Karta 13: Stylování odrážek -->
+<div class="card" id="marker-pseudo-element">
+    <h2>Stylování odrážek: ::marker</h2>
+    <p>Tento pseudoelement umožňuje stylovat odrážky a číslování seznamů.</p>
+    <ul>
+        <li>První položka</li>
+        <li>Druhá položka</li>
+        <li>Třetí položka</li>
+    </ul>
+</div>
+
+<!-- Karta 14: Stylování placeholderu -->
+<div class="card" id="placeholder-pseudo-element">
+    <h2>Stylování placeholderu: ::placeholder</h2>
+    <p>Umožňuje změnit vzhled zástupného textu ve formulářových polích.</p>
+    <input type="text" placeholder="Toto je vlastní placeholder...">
+</div>
+
+<!-- Karta 15: Seskupování selektorů -->
+<div class="card" id="matches-pseudo-classes">
+    <h2>Seskupování: :is() a :where()</h2>
+    <p><code>:is()</code> a <code>:where()</code> zjednodušují psaní komplexních selektorů. Oba vyberou nadpisy <code>h2</code> a <code>h3</code> uvnitř této karty, když na ně najedete myší.</p>
+    <p>Rozdíl je ve specificitě: <code>:is()</code> přebírá specificitu nejspecifičtějšího prvku v seznamu, zatímco <code>:where()</code> má vždy nulovou specificitu.</p>
+    <section>
+        <h2>Nadpis H2</h2>
+        <p>Text pod H2.</p>
+        <h3>Nadpis H3</h3>
+        <p>Text pod H3.</p>
+    </section>
+</div>
 
 </body>
 </html>
+
