@@ -91,6 +91,9 @@ P:hover {
     color: red;
 }
 
+#selection-example::selection {
+    background-color: blueviolet;
+}
 
 /* Pokročilé selektory */
 a[href*="sssvt.cz"]:visited {
